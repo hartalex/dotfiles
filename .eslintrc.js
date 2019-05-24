@@ -21,7 +21,7 @@ module.exports = {
     "array-callback-return": "error",
     "array-element-newline": "off",
     "arrow-body-style": "error",
-    "arrow-parens": "error",
+    "arrow-parens": "off",
     "arrow-spacing": [
       "error",
       {
@@ -209,7 +209,7 @@ module.exports = {
     "nonblock-statement-body-position": "error",
     "object-curly-newline": "off",
     "object-curly-spacing": ["error", "always"],
-    "object-property-newline": "error",
+    "object-property-newline": "off",
     "object-shorthand": "off",
     "one-var": "off",
     "one-var-declaration-per-line": "error",
