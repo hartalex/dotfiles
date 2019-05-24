@@ -1,10 +1,20 @@
 " NERDTREE 
 map <C-n> :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeQuitOnOpen = 1
 
 " vim-test
 map <C-a> :TestNearest<CR>
 map <C-f> :TestFile<CR>
 map <F2> :TestSuite<CR>
+
+" jest test
+let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
+let g:test#strategy = 'neomake'
 
 " Coverage
 let g:coverage_json_report_path = 'coverage/coverage-final.json'
@@ -25,6 +35,15 @@ let g:ycm_add_preview_to_completeopt = 0
 " fugitive gitlab integration
 let g:fugitive_gitlab_domains = ['https://git.nmlv.nml.com']
 
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
+" Rainbow closures
+let g:rainbow_active = 1 
+
+" DevIcons
+set encoding=UTF-8
+set guifont=Hack\ Regular\ Nerd\ Font\ Complete
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -41,8 +60,9 @@ Plug 'airblade/vim-gitgutter'
 " Editor Config
 Plug 'editorconfig/editorconfig-vim'
 
-" Status Line configuration - LightLine 
-Plug 'itchyny/lightline.vim'
+" Status Line configuration   
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
@@ -67,9 +87,6 @@ Plug 'tpope/vim-surround'
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 
-" AutoClose
-Plug 'Townk/vim-autoclose'
-
 " Eunuch
 Plug 'tpope/vim-eunuch'
 
@@ -79,6 +96,30 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Git Commands
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
+
+" Hacker News
+Plug 'adelarsq/vim-hackernews'
+
+" Multi Cursors
+Plug 'terryma/vim-multiple-cursors'
+
+" Rainbow closures
+Plug 'luochen1990/rainbow'
+
+" CSS Color
+Plug 'ap/vim-css-color'
+
+" Jest 
+Plug 'neomake/neomake'
+
+" Solarized
+Plug 'altercation/vim-colors-solarized'
+
+" NPM
+Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
+
+" DevIcons
+Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
