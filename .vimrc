@@ -48,6 +48,9 @@ set guifont=Hack\ Regular\ Nerd\ Font\ Complete
 " Line numbers
 set number
 
+" Spelling
+setlocal spell spelllang=en_us
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 
