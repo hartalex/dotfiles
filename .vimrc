@@ -45,13 +45,13 @@ let g:rainbow_active = 1
 set encoding=UTF-8
 set guifont=Hack\ Regular\ Nerd\ Font\ Complete
 
-" Line numbers
-set number
-
 " Spelling
 setlocal spell spelllang=en_us
 
-" Plugins
+" Split below
+set splitbelow
+
+" ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
 " Test
