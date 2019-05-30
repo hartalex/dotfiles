@@ -51,6 +51,9 @@ setlocal spell spelllang=en_us
 " Split below
 set splitbelow
 
+" Line Numbers
+set number
+
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
