@@ -54,6 +54,24 @@ set splitbelow
 " Line Numbers
 set number
 
+" Folding
+set foldmethod=syntax
+set foldcolumn=1
+let javaScript_fold=1
+set foldlevelstart=99
+
+" incremental search
+set incsearch
+
+" high light search
+set hlsearch
+
+" javascript library syntax
+let g:used_javascript_libs='react,underscore,requirejs,jasmine'
+
+" javascript
+set conceallevel=1
+
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
@@ -85,10 +103,12 @@ Plug 'prettier/vim-prettier', {
 Plug 'w0rp/ale'
 
 " On-demand loading
-"  NERDTREE
+"  Nerd Tree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"  NERDTREE GIT
+"  Nerd Tree GIT
 Plug 'Xuyuanp/nerdtree-git-plugin'
+" Nerd Tree syntax highlighting
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Surround
 Plug 'tpope/vim-surround'
@@ -129,6 +149,24 @@ Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
 
 " DevIcons
 Plug 'ryanoasis/vim-devicons'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'isRuslan/vim-es6'
+
+" Startify
+Plug 'mhinz/vim-startify'
+
+" Rooter
+Plug 'airblade/vim-rooter'
+
+" Emmet
+Plug 'mattn/emmet-vim'
+
+" Postgres
+Plug 'lifepillar/pgsql.vim' 
 
 " Initialize plugin system
 call plug#end()
