@@ -1,3 +1,6 @@
+" Theme
+color atom-dark-256
+
 " NERDTREE 
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeToggle<Enter>
@@ -28,7 +31,7 @@ let g:ycm_min_num_of_chars_for_completion = 4
 let g:ycm_min_num_identifier_candidate_chars = 4
 let g:ycm_enable_diagnostic_highlighting = 0
 
-" Don't show YCM's preview window 
+" Don't show You Complete Me s preview window 
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
 
@@ -66,10 +69,10 @@ set incsearch
 " high light search
 set hlsearch
 
-" javascript library syntax
+" Javascript library syntax
 let g:used_javascript_libs='react,underscore,requirejs,jasmine'
 
-" javascript
+" Javascript
 set conceallevel=1
 
 " ----  Plugins  ----
@@ -167,6 +170,10 @@ Plug 'mattn/emmet-vim'
 
 " Postgres
 Plug 'lifepillar/pgsql.vim' 
+
+" Themes
+Plug 'flrnprz/plastic.vim'
+Plug 'gosukiwi/vim-atom-dark'
 
 " Initialize plugin system
 call plug#end()
