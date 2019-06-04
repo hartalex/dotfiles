@@ -1,3 +1,5 @@
+set nowrap
+
 " Theme
 color atom-dark-256
 
@@ -14,6 +16,20 @@ let NERDTreeQuitOnOpen = 1
 map <C-a> :TestNearest<CR>
 map <C-f> :TestFile<CR>
 map <F2> :TestSuite<CR>
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" Elite mode
+let g:elite_mode=1
+
+" Disable arrow movement, resize splits instead.
+if get(g:, 'elite_mode')
+	nnoremap <Up>    :resize +2<CR>
+	nnoremap <Down>  :resize -2<CR>
+	nnoremap <Left>  :vertical resize +2<CR>
+	nnoremap <Right> :vertical resize -2<CR>
+endif
 
 " jest test
 let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
@@ -49,7 +65,7 @@ set encoding=UTF-8
 set guifont=Hack\ Regular\ Nerd\ Font\ Complete
 
 " Spelling
-setlocal spell spelllang=en_us
+set spell spelllang=en_us
 
 " Split below
 set splitbelow
@@ -118,6 +134,7 @@ Plug 'tpope/vim-surround'
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+Plug 'ternjs/tern_for_vim'
 
 " Eunuch
 Plug 'tpope/vim-eunuch'
@@ -174,7 +191,9 @@ Plug 'lifepillar/pgsql.vim'
 " Themes
 Plug 'flrnprz/plastic.vim'
 Plug 'gosukiwi/vim-atom-dark'
-Plug 'dracula/vim', { 'as': 'dracula' }
+
+" Tag Bar
+Plug 'majutsushi/tagbar'
 
 " Initialize plugin system
 call plug#end()
