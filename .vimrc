@@ -174,6 +174,7 @@ Plug 'lifepillar/pgsql.vim'
 " Themes
 Plug 'flrnprz/plastic.vim'
 Plug 'gosukiwi/vim-atom-dark'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Initialize plugin system
 call plug#end()
