@@ -141,6 +141,7 @@ Plug 'tpope/vim-eunuch'
 
 " Fuzzy Filter Searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Git Commands
 Plug 'tpope/vim-fugitive'
