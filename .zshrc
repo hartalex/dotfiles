@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time vcs dir)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode time vcs dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status load battery disk_usage ram)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
