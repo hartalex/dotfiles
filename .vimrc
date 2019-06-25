@@ -3,10 +3,18 @@ set nowrap
 " Theme
 color atom-dark-256
 
-" NERDTREE 
+" NERDTREE
 map <C-n> :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+nmap <Leader>f :NERDTreeToggle<Enter>
+nmap <Home> :NERDTreeToggle<Enter>
+
+nnoremap <PageUp> <c-w>w
+nnoremap <PageDown> <c-w>W
+
+" Surround
+map <Leader>" ysiw"
+map <Leader>' ysiw'
+
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeAutoDeleteBuffer = 1
@@ -25,10 +33,10 @@ let g:elite_mode=1
 
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
-	nnoremap <Up>    :resize +2<CR>
-	nnoremap <Down>  :resize -2<CR>
-	nnoremap <Left>  :vertical resize +2<CR>
-	nnoremap <Right> :vertical resize -2<CR>
+ nnoremap <Up>    :resize +2<CR>
+ nnoremap <Down>  :resize -2<CR>
+ nnoremap <Left>  :vertical resize +2<CR>
+ nnoremap <Right> :vertical resize -2<CR>
 endif
 
 " jest test
@@ -43,22 +51,30 @@ let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 " Start autocompletion after 4 chars
-let g:ycm_min_num_of_chars_for_completion = 4
-let g:ycm_min_num_identifier_candidate_chars = 4
-let g:ycm_enable_diagnostic_highlighting = 0
+ let g:ycm_min_num_of_chars_for_completion = 4
+ let g:ycm_min_num_identifier_candidate_chars = 4
+ let g:ycm_enable_diagnostic_highlighting = 0
 
-" Don't show You Complete Me s preview window 
+" Don't show You Complete Me s preview window
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
 
 " fugitive gitlab integration
 let g:fugitive_gitlab_domains = ['https://git.nmlv.nml.com']
+" Ale
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#error_symbol = "\uf05e"
+let g:airline#extensions#ale#warning_symbol = "\uf071"
+let g:airline#extensions#ale#checking_symbol = "\uf110"
+let g:airline_powerline_fonts = 1
 
 " Rainbow closures
-let g:rainbow_active = 1 
+let g:rainbow_active = 1
 
 " DevIcons
 set encoding=UTF-8
@@ -106,7 +122,7 @@ Plug 'airblade/vim-gitgutter'
 " Editor Config
 Plug 'editorconfig/editorconfig-vim'
 
-" Status Line configuration   
+" Status Line configuration
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -120,6 +136,9 @@ Plug 'prettier/vim-prettier', {
 
 " ALE - Linting
 Plug 'w0rp/ale'
+
+" Comments
+Plug 'scrooloose/nerdcommenter'
 
 " On-demand loading
 "  Nerd Tree
@@ -159,7 +178,7 @@ Plug 'luochen1990/rainbow'
 " CSS Color
 Plug 'ap/vim-css-color'
 
-" Jest 
+" Jest
 Plug 'neomake/neomake'
 
 " Solarized
@@ -187,7 +206,7 @@ Plug 'airblade/vim-rooter'
 Plug 'mattn/emmet-vim'
 
 " Postgres
-Plug 'lifepillar/pgsql.vim' 
+Plug 'lifepillar/pgsql.vim'
 
 " Themes
 Plug 'flrnprz/plastic.vim'
@@ -195,6 +214,9 @@ Plug 'gosukiwi/vim-atom-dark'
 
 " Tag Bar
 Plug 'majutsushi/tagbar'
+
+" Package json
+Plug 'meain/vim-package-info', { 'do': 'npm install' }
 
 " Initialize plugin system
 call plug#end()
