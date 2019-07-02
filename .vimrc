@@ -165,6 +165,7 @@ Plug 'junegunn/fzf.vim'
 " Git Commands
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'idanarye/vim-merginal'
 
 " Hacker News
 Plug 'adelarsq/vim-hackernews'
