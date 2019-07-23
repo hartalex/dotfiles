@@ -56,8 +56,23 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
  let g:ycm_enable_diagnostic_highlighting = 0
 
 " Don't show You Complete Me s preview window
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt = 0
+"set completeopt-=preview
+"let g:ycm_add_preview_to_completeopt = 0
+"
+" Autocomplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#max_abbr_width = 0
+let g:deoplete#max_menu_width = 0
+let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+
+let g:tern_request_timeout = 1
+let g:tern_request_timeout = 6000
+let g:tern#command = ['tern']
+let g:tern#arguments = [' — persistent']
 
 " fugitive gitlab integration
 let g:fugitive_gitlab_domains = ['https://git.nmlv.nml.com']
@@ -72,6 +87,7 @@ let g:airline#extensions#ale#error_symbol = "\uf05e"
 let g:airline#extensions#ale#warning_symbol = "\uf071"
 let g:airline#extensions#ale#checking_symbol = "\uf110"
 let g:airline_powerline_fonts = 1
+let g:airline_section_x = '%{PencilMode()}'
 
 " Rainbow closures
 let g:rainbow_active = 1
@@ -152,8 +168,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-surround'
 
 " Autocompletion
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-Plug 'ternjs/tern_for_vim'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+Plug 'Shougo/deoplete.nvim'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs'
 
 " Eunuch
 Plug 'tpope/vim-eunuch'
@@ -165,7 +183,6 @@ Plug 'junegunn/fzf.vim'
 " Git Commands
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'idanarye/vim-merginal'
 
 " Hacker News
 Plug 'adelarsq/vim-hackernews'
@@ -218,6 +235,12 @@ Plug 'majutsushi/tagbar'
 
 " Package json
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
+
+" Merginal
+Plug 'idanarye/vim-merginal'
+
+" Pencil
+Plug 'reedes/vim-pencil'
 
 " Initialize plugin system
 call plug#end()
