@@ -20,10 +20,6 @@ let NERDTreeDirArrows = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeQuitOnOpen = 1
 
-" vim-test
-map <C-a> :TestNearest<CR>
-map <C-f> :TestFile<CR>
-map <F2> :TestSuite<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
