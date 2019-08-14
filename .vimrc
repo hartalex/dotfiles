@@ -238,5 +238,8 @@ Plug 'idanarye/vim-merginal'
 " Pencil
 Plug 'reedes/vim-pencil'
 
+" Commentary
+Plug 'tpope/vim-commentary'
+
 " Initialize plugin system
 call plug#end()
