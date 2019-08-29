@@ -11,6 +11,12 @@ nmap <Home> :NERDTreeToggle<Enter>
 nnoremap <PageUp> <c-w>w
 nnoremap <PageDown> <c-w>W
 
+" Terminal key mappings
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
 " Surround
 map <Leader>" ysiw"
 map <Leader>' ysiw'
@@ -237,6 +243,9 @@ Plug 'idanarye/vim-merginal'
 
 " Pencil
 Plug 'reedes/vim-pencil'
+
+" Commentary
+Plug 'tpope/vim-commentary'
 
 " Initialize plugin system
 call plug#end()
