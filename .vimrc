@@ -52,15 +52,6 @@ let g:coverage_json_report_path = 'coverage/coverage-final.json'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
-" Start autocompletion after 4 chars
- let g:ycm_min_num_of_chars_for_completion = 4
- let g:ycm_min_num_identifier_candidate_chars = 4
- let g:ycm_enable_diagnostic_highlighting = 0
-
-" Don't show You Complete Me s preview window
-"set completeopt-=preview
-"let g:ycm_add_preview_to_completeopt = 0
-"
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
@@ -122,8 +113,9 @@ set hlsearch
 " Javascript library syntax
 let g:used_javascript_libs='react,underscore,requirejs,jasmine'
 
-" Javascript
-set conceallevel=1
+" ALE 
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
@@ -211,10 +203,7 @@ Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
 Plug 'ryanoasis/vim-devicons'
 
 " Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'isRuslan/vim-es6'
+Plug 'sheerun/vim-polyglot'
 
 " Startify
 Plug 'mhinz/vim-startify'
@@ -234,6 +223,9 @@ Plug 'gosukiwi/vim-atom-dark'
 
 " Tag Bar
 Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+
 
 " Package json
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
@@ -246,6 +238,9 @@ Plug 'reedes/vim-pencil'
 
 " Commentary
 Plug 'tpope/vim-commentary'
+
+" CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Initialize plugin system
 call plug#end()
