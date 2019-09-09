@@ -1,7 +1,8 @@
 set nowrap
 
 " Theme
-color atom-dark-256
+syntax on
+colorscheme onedark
 
 " NERDTREE
 map <C-n> :NERDTreeToggle<CR>
@@ -81,9 +82,8 @@ let g:airline#extensions#ale#warning_symbol = "\uf071"
 let g:airline#extensions#ale#checking_symbol = "\uf110"
 let g:airline_powerline_fonts = 1
 let g:airline_section_x = '%{PencilMode()}'
+let g:airline_theme='onedark'
 
-" Rainbow closures
-let g:rainbow_active = 1
 
 " DevIcons
 set encoding=UTF-8
@@ -184,9 +184,6 @@ Plug 'adelarsq/vim-hackernews'
 " Multi Cursors
 Plug 'terryma/vim-multiple-cursors'
 
-" Rainbow closures
-Plug 'luochen1990/rainbow'
-
 " CSS Color
 Plug 'ap/vim-css-color'
 
@@ -241,6 +238,9 @@ Plug 'tpope/vim-commentary'
 
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
+
+" Theme
+Plug 'joshdick/onedark.vim'
 
 " Initialize plugin system
 call plug#end()
