@@ -113,8 +113,8 @@ tnoremap <Leader>% <C-\><C-n>:vsp<CR><C-w><C-w>:terminal<CR>i
 noremap <Leader>% :vsp<CR><C-w><C-w>:terminal<CR>i
 
 " Create a terminal in a new horizontal split
-tnoremap <Leader>" <C-\><C-n>:sp<CR>:terminal<CR>i
-noremap <Leader>" :sp<CR>:terminal<CR>i
+tnoremap <Leader>^ <C-\><C-n>:sp<CR>:terminal<CR>i
+noremap <Leader>^ :sp<CR>:terminal<CR>i
 
 " COC Tab Completion
 let g:coc_global_extensions = [
