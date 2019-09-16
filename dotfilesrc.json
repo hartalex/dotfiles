@@ -1,0 +1,10 @@
+{
+  "files": [
+    { "name": ".zshrc" },
+    { "name": ".vimrc" },
+    { "name": ".eslintrc.js", "locations": [] },
+    { "name": ".editorconfig" },
+    { "name": ".gitignore_global" },
+    { "name": "nope" }
+  ]
+}

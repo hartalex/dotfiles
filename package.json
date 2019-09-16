@@ -1,0 +1,19 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dotfiles.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hartalex/dotfiles.git"
+  },
+  "author": "",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/hartalex/dotfiles/issues"
+  },
+  "homepage": "https://github.com/hartalex/dotfiles#readme",
+  "dependencies": {
+    "colors": "1.3.3"
+  }
+}
