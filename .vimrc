@@ -53,21 +53,6 @@ let g:coverage_json_report_path = 'coverage/coverage-final.json'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
-" Autocomplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_camel_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#max_abbr_width = 0
-let g:deoplete#max_menu_width = 0
-let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-
-let g:tern_request_timeout = 1
-let g:tern_request_timeout = 6000
-let g:tern#command = ['tern']
-let g:tern#arguments = [' — persistent']
-
 " fugitive gitlab integration
 let g:fugitive_gitlab_domains = ['https://git.nmlv.nml.com']
 " Ale
@@ -75,6 +60,7 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
 " Airline
+let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#ale#error_symbol = "\uf05e"
@@ -116,6 +102,59 @@ let g:used_javascript_libs='react,underscore,requirejs,jasmine'
 " ALE 
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
+
+" Terminal
+" Create a terminal in a new tab
+tnoremap <Leader>c <C-\><C-n>:tab new<CR>:terminal<CR>i
+noremap <Leader>c :tab new<CR>:terminal<CR>i
+
+" Create a terminal in a new vertical split
+tnoremap <Leader>% <C-\><C-n>:vsp<CR><C-w><C-w>:terminal<CR>i
+noremap <Leader>% :vsp<CR><C-w><C-w>:terminal<CR>i
+
+" Create a terminal in a new horizontal split
+tnoremap <Leader>" <C-\><C-n>:sp<CR>:terminal<CR>i
+noremap <Leader>" :sp<CR>:terminal<CR>i
+
+" COC Tab Completion
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-css'
+      \ ]
+
+hi! link CocErrorHighlight SpellBad
+hi! CocFloating ctermbg=236 guibg=#292c3a
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+nnoremap <F5> :CocRebuild<CR>
+nmap <silent> gr <Plug>(coc-rename)
+nmap <silent> gR <Plug>(coc-refactor)
+nmap <silent> gs <Plug>(coc-fix-current)
+nmap <silent> gS <Plug>(coc-codeaction)
+nmap <silent> [g <Plug>(coc-diagnostic-next)
+nmap <silent> ]g <Plug>(coc-diagnostic-prev)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> K         :call CocAction('doHover')<CR>
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
@@ -161,12 +200,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Surround
 Plug 'tpope/vim-surround'
 
-" Autocompletion
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-Plug 'Shougo/deoplete.nvim'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
-Plug 'carlitux/deoplete-ternjs'
-
 " Eunuch
 Plug 'tpope/vim-eunuch'
 
@@ -177,21 +210,16 @@ Plug 'junegunn/fzf.vim'
 " Git Commands
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'idanarye/vim-merginal'
 
 " Hacker News
 Plug 'adelarsq/vim-hackernews'
-
-" Multi Cursors
-Plug 'terryma/vim-multiple-cursors'
 
 " CSS Color
 Plug 'ap/vim-css-color'
 
 " Jest
 Plug 'neomake/neomake'
-
-" Solarized
-Plug 'altercation/vim-colors-solarized'
 
 " NPM
 Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
@@ -214,21 +242,14 @@ Plug 'mattn/emmet-vim'
 " Postgres
 Plug 'lifepillar/pgsql.vim'
 
-" Themes
-Plug 'flrnprz/plastic.vim'
-Plug 'gosukiwi/vim-atom-dark'
-
 " Tag Bar
 Plug 'majutsushi/tagbar'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 
-
 " Package json
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 
-" Merginal
-Plug 'idanarye/vim-merginal'
 
 " Pencil
 Plug 'reedes/vim-pencil'
@@ -241,6 +262,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " Theme
 Plug 'joshdick/onedark.vim'
+
+" COC
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Initialize plugin system
 call plug#end()
