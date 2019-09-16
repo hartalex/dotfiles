@@ -155,6 +155,13 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" DB 
+let g:bsint = 'postgres://$INT_PG_USER_BANKSERVICES:$INT_PG_PASS_BANKSERVICES@$INT_PG_HOST_BANKSERVICES/bankservices'
+let g:bsqa = 'postgres://$QA_PG_USER_BANKSERVICES:$QA_PG_PASS_BANKSERVICES@$QA_PG_HOST_BANKSERVICES/bankservices'
+let g:bsprod = 'postgres://$PROD_PG_USER_BANKSERVICES:$PROD_PG_PASS_BANKSERVICES@$PROD_PG_HOST_BANKSERVICES/bankservices'
+nnoremap <leader>ri :% DB g:bsint<CR>
+nnoremap <leader>rq :% DB g:bsqa<CR>
+nnoremap <leader>rp :% DB g:bsprod<CR>
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
@@ -266,5 +273,9 @@ Plug 'joshdick/onedark.vim'
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" DB
+Plug 'tpope/vim-dadbod'
+
 " Initialize plugin system
 call plug#end()
+
