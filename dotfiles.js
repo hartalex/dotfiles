@@ -69,8 +69,10 @@ if (fileDiffErrors.length > 0) {
     )
   );
 }
+let myrepo = {};
 git.Repository.open(repoPath)
   .then(repo => {
+    myrepo = repo;
     return repo.getStatus();
   })
   .then(statusList => {
@@ -89,7 +91,7 @@ git.Repository.open(repoPath)
       );
       return undefined;
     }
-    return repo;
+    return myrepo;
   })
   .then(repo => {
     if (repo) {
