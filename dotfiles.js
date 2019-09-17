@@ -126,13 +126,17 @@ function findFile(file) {
   // search locations for files
   locations.push(homePath);
   const foundLocations = locations.filter(location => {
-    const locationPath = path.join(location, name);
+    const locationPath = path.join(location.replace(/~/g, homePath), name);
+    console.log(colors.yellow(locationPath));
     return fileExists(locationPath);
   });
   if (foundLocations.length <= 0) {
     return undefined;
   }
-  const foundLocationPath = path.join(foundLocations[0], name);
+  const foundLocationPath = path.join(
+    foundLocations[0].replace(/~/g, homePath),
+    name
+  );
   return foundLocationPath;
 }
 

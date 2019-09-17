@@ -4,6 +4,7 @@
     { "name": ".vimrc" },
     { "name": ".eslintrc.js", "locations": [] },
     { "name": ".editorconfig" },
-    { "name": ".gitignore_global" }
+    { "name": ".gitignore_global" },
+    { "name": "alacritty.yml", "locations": ["~/.config/alacritty"] }
   ]
 }
