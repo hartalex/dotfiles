@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -98,8 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode time vcs dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status load battery disk_usage ram)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time vcs dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status battery)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
@@ -107,6 +107,11 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source $HOME/.bash_profile
+export PATH="$HOME/.rbenv/versions/2.6.3/bin":$PATH
+export LDFLAGS="-L$HOME/.rbenv/versions/2.6.3/lib"
+export CPPFLAGS="-y$HOME/.rbenv/versions/2.6.3/include/"
 alias ls='colorls'
 export TERM="xterm-256color"
 source $HOME/.envsec
