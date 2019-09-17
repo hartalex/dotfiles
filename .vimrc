@@ -159,9 +159,15 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:bsint = 'postgres://$INT_PG_USER_BANKSERVICES:$INT_PG_PASS_BANKSERVICES@$INT_PG_HOST_BANKSERVICES/bankservices'
 let g:bsqa = 'postgres://$QA_PG_USER_BANKSERVICES:$QA_PG_PASS_BANKSERVICES@$QA_PG_HOST_BANKSERVICES/bankservices'
 let g:bsprod = 'postgres://$PROD_PG_USER_BANKSERVICES:$PROD_PG_PASS_BANKSERVICES@$PROD_PG_HOST_BANKSERVICES/bankservices'
+
+let g:achtest = 'jdbc:sqlserver://$TEST_MS_HOST_ACHTRANSACTION:1433;user=$TEST_MS_USER_ACHTRANSACTION;password=$TEST_MS_PASS_ACHTRANSACTION;database=$TEST_MS_DB_ACHTRANSACTION'
+let g:achstage = 'jdbc:sqlserver://$STAGE_MS_HOST_ACHTRANSACTION:1433;user=$STAGE_MS_USER_ACHTRANSACTION;password=$STAGE_MS_PASS_ACHTRANSACTION;database=$STAGE_MS_DB_ACHTRANSACTION'
+let g:achprod = 'jdbc:sqlserver://$PROD_MS_HOST_ACHTRANSACTION:1433;user=$PROD_MS_USER_ACHTRANSACTION;password=$PROD_MS_PASS_ACHTRANSACTION;database=$PROD_MS_DB_ACHTRANSACTION'
 nnoremap <leader>ri :% DB g:bsint<CR>
 nnoremap <leader>rq :% DB g:bsqa<CR>
 nnoremap <leader>rp :% DB g:bsprod<CR>
+
+
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
@@ -256,7 +262,6 @@ Plug 'xolox/vim-misc'
 
 " Package json
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
-
 
 " Pencil
 Plug 'reedes/vim-pencil'
