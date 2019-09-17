@@ -163,11 +163,53 @@ let g:bsprod = 'postgres://$PROD_PG_USER_BANKSERVICES:$PROD_PG_PASS_BANKSERVICES
 let g:achtest = 'jdbc:sqlserver://$TEST_MS_HOST_ACHTRANSACTION:1433;user=$TEST_MS_USER_ACHTRANSACTION;password=$TEST_MS_PASS_ACHTRANSACTION;database=$TEST_MS_DB_ACHTRANSACTION'
 let g:achstage = 'jdbc:sqlserver://$STAGE_MS_HOST_ACHTRANSACTION:1433;user=$STAGE_MS_USER_ACHTRANSACTION;password=$STAGE_MS_PASS_ACHTRANSACTION;database=$STAGE_MS_DB_ACHTRANSACTION'
 let g:achprod = 'jdbc:sqlserver://$PROD_MS_HOST_ACHTRANSACTION:1433;user=$PROD_MS_USER_ACHTRANSACTION;password=$PROD_MS_PASS_ACHTRANSACTION;database=$PROD_MS_DB_ACHTRANSACTION'
+
 nnoremap <leader>ri :% DB g:bsint<CR>
 nnoremap <leader>rq :% DB g:bsqa<CR>
 nnoremap <leader>rp :% DB g:bsprod<CR>
 
+nnoremap <leader>rat :% DB g:achtest<CR>
+nnoremap <leader>ras :% DB g:achstage<CR>
+nnoremap <leader>rap :% DB g:achprod<CR>
 
+" Disable Mouse
+set mouse=a
+nmap <ScrollWheelUp> <nop>
+nmap <S-ScrollWheelUp> <nop>
+nmap <C-ScrollWheelUp> <nop>
+nmap <ScrollWheelDown> <nop>
+nmap <S-ScrollWheelDown> <nop>
+nmap <C-ScrollWheelDown> <nop>
+nmap <ScrollWheelLeft> <nop>
+nmap <S-ScrollWheelLeft> <nop>
+nmap <C-ScrollWheelLeft> <nop>
+nmap <ScrollWheelRight> <nop>
+nmap <S-ScrollWheelRight> <nop>
+nmap <C-ScrollWheelRight> <nop>
+imap <ScrollWheelUp> <nop>
+imap <S-ScrollWheelUp> <nop>
+imap <C-ScrollWheelUp> <nop>
+imap <ScrollWheelDown> <nop>
+imap <S-ScrollWheelDown> <nop>
+imap <C-ScrollWheelDown> <nop>
+imap <ScrollWheelLeft> <nop>
+imap <S-ScrollWheelLeft> <nop>
+imap <C-ScrollWheelLeft> <nop>
+imap <ScrollWheelRight> <nop>
+imap <S-ScrollWheelRight> <nop>
+imap <C-ScrollWheelRight> <nop>
+vmap <ScrollWheelUp> <nop>
+vmap <S-ScrollWheelUp> <nop>
+vmap <C-ScrollWheelUp> <nop>
+vmap <ScrollWheelDown> <nop>
+vmap <S-ScrollWheelDown> <nop>
+vmap <C-ScrollWheelDown> <nop>
+vmap <ScrollWheelLeft> <nop>
+vmap <S-ScrollWheelLeft> <nop>
+vmap <C-ScrollWheelLeft> <nop>
+vmap <ScrollWheelRight> <nop>
+vmap <S-ScrollWheelRight> <nop>
+vmap <C-ScrollWheelRight> <nop>
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
