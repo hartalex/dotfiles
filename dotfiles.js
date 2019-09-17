@@ -7,7 +7,7 @@ const crypto = require("crypto");
 const git = require("nodegit");
 
 const configFileName = "dotfilesrc.json";
-const repoPath = ".";
+const repoPath = "./";
 const {
   env: { HOME: homePath }
 } = process;
