@@ -211,6 +211,11 @@ vmap <ScrollWheelRight> <nop>
 vmap <S-ScrollWheelRight> <nop>
 vmap <C-ScrollWheelRight> <nop>
 
+" Explore
+nnoremap <Leader>v :Vex<CR>
+nnoremap <Leader>s :Sex<CR>
+
+
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
