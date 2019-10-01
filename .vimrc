@@ -1,8 +1,10 @@
 set nowrap
 
 " Theme
-syntax on
+syntax enable 
 colorscheme onedark
+
+filetype plugin indent on
 
 " NERDTREE
 map <C-n> :NERDTreeToggle<CR>
@@ -55,9 +57,6 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 " fugitive gitlab integration
 let g:fugitive_gitlab_domains = ['https://git.nmlv.nml.com']
-" Ale
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
 
 " Airline
 let g:airline#extensions#coc#enabled = 1
@@ -96,10 +95,8 @@ set incsearch
 " high light search
 set hlsearch
 
-" Javascript library syntax
-let g:used_javascript_libs='react,underscore,requirejs,jasmine'
-
 " ALE 
+let g:ale_javascript_eslint_use_global = 1
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap)
 
@@ -215,6 +212,9 @@ vmap <C-ScrollWheelRight> <nop>
 nnoremap <Leader>v :Vex<CR>
 nnoremap <Leader>s :Sex<CR>
 
+" Nospell on certain buffers
+autocmd FileType help setlocal nospell
+autocmd TermOpen * setlocal nospell
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
@@ -241,7 +241,7 @@ Plug 'sheerun/vim-polyglot'
 " Prettier
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  \ 'for': ['javascript','jsx', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " ALE - Linting
 Plug 'w0rp/ale'

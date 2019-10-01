@@ -4,16 +4,19 @@ module.exports = {
     node: true,
     "jest/globals": true
   },
-  extends: "eslint:recommended",
+  extends: ["eslint:recommended", "plugin:react/recommended"],
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly"
   },
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true
+    }
   },
-  plugins: ["jest"],
+  plugins: ["jest", "import", "react", "jsdoc"],
   rules: {
     "accessor-pairs": "error",
     "array-bracket-newline": "error",
@@ -258,6 +261,33 @@ module.exports = {
     "wrap-iife": "error",
     "wrap-regex": "error",
     "yield-star-spacing": "error",
-    yoda: ["error", "never"]
+    yoda: ["error", "never"],
+    // JSDOC
+    "jsdoc/check-alignment": 1, // Recommended
+    "jsdoc/check-examples": 1,
+    "jsdoc/check-indentation": 1,
+    "jsdoc/check-param-names": 1, // Recommended
+    "jsdoc/check-syntax": 1,
+    "jsdoc/check-tag-names": 1, // Recommended
+    "jsdoc/check-types": 1, // Recommended
+    "jsdoc/implements-on-classes": 1, // Recommended
+    "jsdoc/match-description": 1,
+    "jsdoc/newline-after-description": 1, // Recommended
+    "jsdoc/no-types": 1,
+    "jsdoc/no-undefined-types": 1, // Recommended
+    "jsdoc/require-description": 1,
+    "jsdoc/require-description-complete-sentence": 1,
+    "jsdoc/require-example": 1,
+    "jsdoc/require-hyphen-before-param-description": 1,
+    "jsdoc/require-jsdoc": 1, // Recommended
+    "jsdoc/require-param": 1, // Recommended
+    "jsdoc/require-param-description": 1, // Recommended
+    "jsdoc/require-param-name": 1, // Recommended
+    "jsdoc/require-param-type": 1, // Recommended
+    "jsdoc/require-returns": 1, // Recommended
+    "jsdoc/require-returns-check": 1, // Recommended
+    "jsdoc/require-returns-description": 1, // Recommended
+    "jsdoc/require-returns-type": 1, // Recommended
+    "jsdoc/valid-types": 1 // Recommended
   }
 };
