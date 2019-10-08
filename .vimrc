@@ -328,6 +328,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " DB
 Plug 'tpope/vim-dadbod'
 
+" Vinegar 
+Plug 'tpope/vim-vinegar'
+
 " Initialize plugin system
 call plug#end()
 
