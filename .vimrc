@@ -2,9 +2,43 @@ set nowrap
 
 " Theme
 syntax enable 
-colorscheme onedark
 
 filetype plugin indent on
+
+
+" One Dark
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = ""
+let g:javascript_conceal_underscore_arrow_function = ""
+
+set conceallevel=2
+let g:onedark_terminal_italics = 1
+
+if (has("autocmd"))
+  augroup colorextend
+    autocmd!
+    let s:colors = onedark#GetColors()
+    autocmd ColorScheme * call onedark#extend_highlight("Conceal", { "fg": s:colors.purple})
+  augroup END
+endif
+
+colorscheme onedark
+
+hi Statement cterm=italic
+hi Conditional cterm=italic
+hi Repeat cterm=italic
+hi Label  cterm=italic
+hi Exception cterm=italic
+hi Define cterm=italic
+hi Macro cterm=italic
+hi Todo cterm=italic
+hi Comment cterm=NONE
+hi jsExport cterm=italic
+hi jsImport cterm=italic
+hi jsFrom cterm=italic
+hi jsStorageClass cterm=italic
+
 
 " NERDTREE
 map <C-n> :NERDTreeToggle<CR>
