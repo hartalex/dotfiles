@@ -1,49 +1,22 @@
 set nowrap
-
-" Theme
+set encoding=UTF-8
 syntax enable 
-
 filetype plugin indent on
+set splitbelow
+set number
+set incsearch
+set hlsearch
 
+" Folding
+set foldmethod=syntax
+let javaScript_fold=1
+set foldlevelstart=99
 
+" -------- Theme
 " One Dark
-let g:javascript_conceal_function             = "ƒ"
-let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_noarg_arrow_function = ""
-let g:javascript_conceal_underscore_arrow_function = ""
-
-set conceallevel=2
-let g:onedark_terminal_italics = 1
-
-if (has("autocmd"))
-  augroup colorextend
-    autocmd!
-    let s:colors = onedark#GetColors()
-    autocmd ColorScheme * call onedark#extend_highlight("Conceal", { "fg": s:colors.purple})
-  augroup END
-endif
-
+let g:onedark_terminal_italics=1
+let g:javascript_plugin_jsdoc = 1
 colorscheme onedark
-
-hi Statement cterm=italic
-hi Conditional cterm=italic
-hi Repeat cterm=italic
-hi Label  cterm=italic
-hi Exception cterm=italic
-hi Define cterm=italic
-hi Macro cterm=italic
-hi Todo cterm=italic
-hi Comment cterm=NONE
-hi jsExport cterm=italic
-hi jsImport cterm=italic
-hi jsFrom cterm=italic
-hi jsStorageClass cterm=italic
-
-
-" NERDTREE
-map <C-n> :NERDTreeToggle<CR>
-nmap <Leader>f :NERDTreeToggle<Enter>
-nmap <Home> :NERDTreeToggle<Enter>
 
 nnoremap <PageUp> <c-w>w
 nnoremap <PageDown> <c-w>W
@@ -55,28 +28,17 @@ if has('nvim')
 endif
 
 " Surround
-map <Leader>" ysiw"
-map <Leader>' ysiw'
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeQuitOnOpen = 1
-
+nnoremap <Leader>" ysiw"
+nnoremap <Leader>' ysiw'
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
-
-" Elite mode
-let g:elite_mode=1
+nnoremap <F8> :TagbarToggle<CR>
 
 " Disable arrow movement, resize splits instead.
-if get(g:, 'elite_mode')
- nnoremap <Up>    :resize +2<CR>
- nnoremap <Down>  :resize -2<CR>
- nnoremap <Left>  :vertical resize +2<CR>
- nnoremap <Right> :vertical resize -2<CR>
-endif
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
 
 " jest test
 let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
@@ -95,44 +57,17 @@ let g:fugitive_gitlab_domains = ['https://git.nmlv.nml.com']
 " Airline
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#ale#error_symbol = "\uf05e"
-let g:airline#extensions#ale#warning_symbol = "\uf071"
-let g:airline#extensions#ale#checking_symbol = "\uf110"
 let g:airline_powerline_fonts = 1
 let g:airline_section_x = '%{PencilMode()}'
 let g:airline_theme='onedark'
 
 
-" DevIcons
-set encoding=UTF-8
-set guifont=Hack\ Regular\ Nerd\ Font\ Complete
+" Spelunker
+set nospell
+noremap ]s  :call spelunker#jump_next()<CR>
+noremap [s  :call spelunker#jump_prev()<CR>
+noremap z=  :call spelunker#correct_from_list()<CR>
 
-" Spelling
-set spell spelllang=en_us
-
-" Split below
-set splitbelow
-
-" Line Numbers
-set number
-
-" Folding
-set foldmethod=syntax
-set foldcolumn=1
-let javaScript_fold=1
-set foldlevelstart=99
-
-" incremental search
-set incsearch
-
-" high light search
-set hlsearch
-
-" ALE 
-let g:ale_javascript_eslint_use_global = 1
-nmap <silent> [c <Plug>(ale_previous_wrap)
-nmap <silent> ]c <Plug>(ale_next_wrap)
 
 " Terminal
 " Create a terminal in a new tab
@@ -152,7 +87,8 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-json',
       \ 'coc-html',
-      \ 'coc-css'
+      \ 'coc-css',
+      \ 'coc-eslint'
       \ ]
 
 hi! link CocErrorHighlight SpellBad
@@ -169,8 +105,8 @@ nmap <silent> gr <Plug>(coc-rename)
 nmap <silent> gR <Plug>(coc-refactor)
 nmap <silent> gs <Plug>(coc-fix-current)
 nmap <silent> gS <Plug>(coc-codeaction)
-nmap <silent> [g <Plug>(coc-diagnostic-next)
-nmap <silent> ]g <Plug>(coc-diagnostic-prev)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -246,9 +182,6 @@ vmap <C-ScrollWheelRight> <nop>
 nnoremap <Leader>v :Vex<CR>
 nnoremap <Leader>s :Sex<CR>
 
-" Nospell on certain buffers
-autocmd FileType help setlocal nospell
-autocmd TermOpen * setlocal nospell
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
@@ -278,18 +211,7 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript','jsx', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " ALE - Linting
-Plug 'w0rp/ale'
-
-" Comments
-Plug 'scrooloose/nerdcommenter'
-
-" On-demand loading
-"  Nerd Tree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"  Nerd Tree GIT
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" Nerd Tree syntax highlighting
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'w0rp/ale'
 
 " Surround
 Plug 'tpope/vim-surround'
@@ -321,8 +243,9 @@ Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
 " DevIcons
 Plug 'ryanoasis/vim-devicons'
 
-" Javascript
+" Javascript Syntax
 Plug 'sheerun/vim-polyglot'
+Plug 'hartalex/javascript-ex.vim'
 
 " Startify
 Plug 'mhinz/vim-startify'
@@ -350,11 +273,12 @@ Plug 'reedes/vim-pencil'
 " Commentary
 Plug 'tpope/vim-commentary'
 
-" CtrlP
+" CtrlP - What is this
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Theme
 Plug 'joshdick/onedark.vim'
+Plug 'hartalex/onedark-ex.vim'
 
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -365,6 +289,8 @@ Plug 'tpope/vim-dadbod'
 " Vinegar 
 Plug 'tpope/vim-vinegar'
 
+
+Plug 'kamykn/spelunker.vim'
+
 " Initialize plugin system
 call plug#end()
-
