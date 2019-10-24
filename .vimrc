@@ -31,9 +31,6 @@ endif
 nnoremap <Leader>" ysiw"
 nnoremap <Leader>' ysiw'
 
-" Tagbar
-nnoremap <F8> :TagbarToggle<CR>
-
 " Disable arrow movement, resize splits instead.
 nnoremap <Up>    :resize +2<CR>
 nnoremap <Down>  :resize -2<CR>
@@ -210,9 +207,6 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'for': ['javascript','jsx', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-" ALE - Linting
-"Plug 'w0rp/ale'
-
 " Surround
 Plug 'tpope/vim-surround'
 
@@ -258,11 +252,6 @@ Plug 'mattn/emmet-vim'
 
 " Postgres
 Plug 'lifepillar/pgsql.vim'
-
-" Tag Bar
-Plug 'majutsushi/tagbar'
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
 
 " Package json
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
