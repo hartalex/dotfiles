@@ -179,7 +179,6 @@ vmap <C-ScrollWheelRight> <nop>
 nnoremap <Leader>v :Vex<CR>
 nnoremap <Leader>s :Sex<CR>
 
-
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
@@ -234,8 +233,6 @@ Plug 'neomake/neomake'
 " NPM
 Plug 'neoclide/npm.nvim', {'do' : 'npm install'}
 
-" DevIcons
-Plug 'ryanoasis/vim-devicons'
 
 " Javascript Syntax
 Plug 'sheerun/vim-polyglot'
@@ -246,9 +243,6 @@ Plug 'mhinz/vim-startify'
 
 " Rooter
 Plug 'airblade/vim-rooter'
-
-" Emmet
-Plug 'mattn/emmet-vim'
 
 " Postgres
 Plug 'lifepillar/pgsql.vim'
@@ -278,8 +272,11 @@ Plug 'tpope/vim-dadbod'
 " Vinegar 
 Plug 'tpope/vim-vinegar'
 
-
+" Spelling
 Plug 'kamykn/spelunker.vim'
+
+" DevIcons
+Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
