@@ -64,6 +64,7 @@ set nospell
 noremap ]s  :call spelunker#jump_next()<CR>
 noremap [s  :call spelunker#jump_prev()<CR>
 noremap z=  :call spelunker#correct_from_list()<CR>
+noremap zg  :call <Plug>(add-spelunker-good)
 
 
 " Terminal
