@@ -3,6 +3,7 @@ set encoding=UTF-8
 syntax enable 
 filetype plugin indent on
 set splitbelow
+set splitright
 set number
 set incsearch
 set hlsearch
@@ -64,7 +65,7 @@ set nospell
 noremap ]s  :call spelunker#jump_next()<CR>
 noremap [s  :call spelunker#jump_prev()<CR>
 noremap z=  :call spelunker#correct_from_list()<CR>
-noremap zg  :call <Plug>(add-spelunker-good)
+noremap silent! nmap <unique> zg <Plug>(add-spelunker-good-nmap)<CR>
 
 
 " Terminal
