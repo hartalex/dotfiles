@@ -74,8 +74,8 @@ tnoremap <Leader>c <C-\><C-n>:tab new<CR>:terminal<CR>i
 noremap <Leader>c :tab new<CR>:terminal<CR>i
 
 " Create a terminal in a new vertical split
-tnoremap <Leader>% <C-\><C-n>:vsp<CR><C-w><C-w>:terminal<CR>i
-noremap <Leader>% :vsp<CR><C-w><C-w>:terminal<CR>i
+tnoremap <Leader>% <C-\><C-n>:vsp<CR>:terminal<CR>i
+noremap <Leader>% :vsp<CR>:terminal<CR>i
 
 " Create a terminal in a new horizontal split
 tnoremap <Leader>^ <C-\><C-n>:sp<CR>:terminal<CR>i
