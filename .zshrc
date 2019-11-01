@@ -115,3 +115,5 @@ export CPPFLAGS="-y$HOME/.rbenv/versions/2.6.3/include/"
 alias ls='colorls'
 export TERM="xterm-256color"
 source $HOME/.envsec
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
