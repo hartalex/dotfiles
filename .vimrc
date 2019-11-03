@@ -65,7 +65,7 @@ set nospell
 noremap ]s  :call spelunker#jump_next()<CR>
 noremap [s  :call spelunker#jump_prev()<CR>
 noremap z=  :call spelunker#correct_from_list()<CR>
-noremap silent! nmap <unique> zg <Plug>(add-spelunker-good-nmap)<CR>
+noremap zg  :call spelunker#execute_with_target_word('spellgood')<CR> :call spelunker#check()<CR>
 
 
 " Terminal
