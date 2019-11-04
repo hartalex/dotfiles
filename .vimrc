@@ -193,6 +193,15 @@ vmap <C-ScrollWheelRight> <nop>
 nnoremap <Leader>v :Vex<CR>
 nnoremap <Leader>s :Sex<CR>
 
+"CtrlP
+set wildignore+=*/coverage/*,*/node_modules/*,*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/][\.(git|hg|svn)|node_modules|coverage]$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
