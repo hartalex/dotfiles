@@ -18,6 +18,18 @@ set foldlevelstart=99
 let g:onedark_terminal_italics=1
 let g:javascript_plugin_jsdoc = 1
 colorscheme onedark
+hi Conditional cterm=italic
+hi Repeat cterm=italic
+hi Label  cterm=italic
+hi Exception cterm=italic
+hi Define cterm=italic
+hi Macro cterm=italic
+hi Todo cterm=italic
+hi jsExport cterm=italic
+hi jsImport cterm=italic
+hi jsFrom cterm=italic
+hi jsStorageClass cterm=italic
+hi jsFunction cterm=italic
 
 nnoremap <PageUp> <c-w>w
 nnoremap <PageDown> <c-w>W
