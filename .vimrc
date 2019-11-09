@@ -214,9 +214,6 @@ Plug 'ruanyl/coverage.vim'
 " Git Gutters
 Plug 'airblade/vim-gitgutter'
 
-" Editor Config
-Plug 'editorconfig/editorconfig-vim'
-
 " Status Line configuration
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -297,6 +294,9 @@ Plug 'tpope/vim-vinegar'
 
 " Spelling
 Plug 'kamykn/spelunker.vim'
+
+" Editor Config
+Plug 'editorconfig/editorconfig-vim'
 
 " DevIcons
 Plug 'ryanoasis/vim-devicons'
