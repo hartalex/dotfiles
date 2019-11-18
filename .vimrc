@@ -194,7 +194,7 @@ nnoremap <Leader>v :Vex<CR>
 nnoremap <Leader>s :Sex<CR>
 
 "CtrlP
-set wildignore+=*/coverage/*,*/node_modules/*,*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/coverage/*,*/node_modules/*,*/tmp/*,*.so,*.swp,*.zip,*.a,*.o     " MacOSX/Linux
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/][\.(git|hg|svn)|node_modules|coverage]$',
