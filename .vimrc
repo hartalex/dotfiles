@@ -31,6 +31,9 @@ hi jsFrom cterm=italic
 hi jsStorageClass cterm=italic
 hi jsFunction cterm=italic
 
+" Startup create terminal
+autocmd VimEnter * :execute "normal :vsp\<CR>:terminal\<CR>\<c-w>w"
+
 nnoremap <PageUp> <c-w>w
 nnoremap <PageDown> <c-w>W
 
