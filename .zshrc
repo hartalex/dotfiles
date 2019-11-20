@@ -114,6 +114,7 @@ export LDFLAGS="-L$HOME/.rbenv/versions/2.6.3/lib"
 export CPPFLAGS="-y$HOME/.rbenv/versions/2.6.3/include/"
 alias ls='colorls'
 alias vi='nvim'
+alias vim='nvim'
 export EDITOR='nvim'
 export TERM="xterm-256color"
 source $HOME/.envsec
