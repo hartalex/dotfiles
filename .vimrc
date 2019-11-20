@@ -32,7 +32,24 @@ hi jsStorageClass cterm=italic
 hi jsFunction cterm=italic
 
 " Startup create terminal
-autocmd VimEnter * :execute "normal :vsp\<CR>:terminal\<CR>\<c-w>w"
+function OpenTerminalVSP() 
+    execute "normal :vsp\<CR>:terminal\<CR>\<c-w>w"
+endfunction
+
+function StartUpEnter()
+    if @% == ""
+        " No filename for current buffer
+        call OpenTerminalVSP()
+    elseif filereadable(@%) == 0
+        " File doesn't exist yet
+        call OpenTerminalVSP()
+    elseif line('$') == 1 && col('$') == 1
+        " File is empty
+        call OpenTerminalVSP()
+    endif
+endfunction
+
+au VimEnter * call StartUpEnter()
 
 nnoremap <PageUp> <c-w>w
 nnoremap <PageDown> <c-w>W
