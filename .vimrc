@@ -51,6 +51,9 @@ hi jsFunction cterm=italic
 
 " au VimEnter * call StartUpEnter()
 
+" Snippets
+let g:UltiSnipsExpandTrigger="<c-a>"
+
 nnoremap <PageUp> <c-w>w
 nnoremap <PageDown> <c-w>W
 
@@ -222,6 +225,9 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+" C formatter
+autocmd FileType c,cpp,objc ClangFormatAutoEnable
+
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
@@ -314,6 +320,13 @@ Plug 'tpope/vim-vinegar'
 
 " Spelling
 Plug 'kamykn/spelunker.vim'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" C formatter
+Plug 'rhysd/vim-clang-format'
 
 " Editor Config
 Plug 'editorconfig/editorconfig-vim'
