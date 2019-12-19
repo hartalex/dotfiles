@@ -110,8 +110,7 @@ export NVM_DIR="$HOME/.nvm"
 
 source $HOME/.bash_profile
 export PATH="$HOME/.rbenv/versions/2.6.3/bin":$PATH
-export LDFLAGS="-L$HOME/.rbenv/versions/2.6.3/lib"
-export CPPFLAGS="-y$HOME/.rbenv/versions/2.6.3/include/"
+export CPPFLAGS="-ansi -Wall -Wpedantic"
 alias ls='colorls'
 alias vi='nvim'
 alias vim='nvim'
