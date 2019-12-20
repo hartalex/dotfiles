@@ -7,6 +7,7 @@ set splitright
 set number
 set incsearch
 set hlsearch
+set termguicolors
 
 " Folding
 set foldmethod=syntax
