@@ -110,12 +110,27 @@ export NVM_DIR="$HOME/.nvm"
 
 source $HOME/.bash_profile
 export PATH="$HOME/.rbenv/versions/2.6.3/bin":$PATH
-export CPPFLAGS="-ansi -Wall -Wpedantic"
 alias ls='colorls'
 alias vi='nvim'
 alias vim='nvim'
+# Git Aliases
+alias gc='git cz -S'
+alias gcr='git cz -S --retry'
+alias ga='git add'
+alias gp='git push'
+alias gu='git pull -S --rebase'
+alias gm='git merge -S'
+alias gs='git status'
+alias gr='git revert -S'
+alias gd='git diff'
+# node_modules
+alias tableflip="echo '(╯°□°)╯︵ ┻━┻' && rm -rf node_modules && npm ci"
+
 export EDITOR='nvim'
 export TERM="xterm-256color"
 source $HOME/.envsec
+
+export GPG_TTY=$(tty)
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
