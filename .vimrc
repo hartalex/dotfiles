@@ -229,6 +229,9 @@ let g:ctrlp_custom_ignore = {
 " C formatter
 autocmd FileType c,cpp,objc ClangFormatAutoEnable
 
+" http client
+let g:http_client_verify_ssl = 0
+
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
@@ -331,6 +334,9 @@ Plug 'rhysd/vim-clang-format'
 
 " Editor Config
 Plug 'editorconfig/editorconfig-vim'
+
+" http client
+Plug 'aquach/vim-http-client'
 
 " DevIcons
 Plug 'ryanoasis/vim-devicons'
