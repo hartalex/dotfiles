@@ -123,6 +123,10 @@ alias gm='git merge -S'
 alias gs='git status'
 alias gr='git revert -S'
 alias gd='git diff'
+# npm alias
+alias nc='npm run ci-test'
+alias ni='npm install'
+alias ns='npm run start'
 # node_modules
 alias tableflip="echo '(╯°□°)╯︵ ┻━┻' && rm -rf node_modules && npm ci"
 
