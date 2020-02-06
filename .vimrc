@@ -232,6 +232,10 @@ autocmd FileType c,cpp,objc ClangFormatAutoEnable
 " http client
 let g:http_client_verify_ssl = 0
 
+" windows
+" Ctrl - Alt - Shift w to hop between windows
+nnoremap <C-A-W> <C-w>w
+
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
