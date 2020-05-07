@@ -130,11 +130,20 @@ alias ns='npm run start'
 # node_modules
 alias tableflip="echo '(╯°□°)╯︵ ┻━┻' && rm -rf node_modules && npm ci"
 
-export EDITOR='nvim'
 export TERM="xterm-256color"
 source $HOME/.envsec
 
 export GPG_TTY=$(tty)
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+	if [ -x "$(command -v nvr)" ]; then
+		alias nvim=nvr
+	else
+		alias nvim='echo "No nesting!"'
+	fi
+fi
+
+alias aws-nm-login='/Users/har4146/.nvm/versions/node/v10.18.0/bin/aws-nm-login'
+alias weather='curl wttr.in/cedarburg'

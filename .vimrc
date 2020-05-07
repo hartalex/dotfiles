@@ -213,7 +213,6 @@ vmap <ScrollWheelRight> <nop>
 vmap <S-ScrollWheelRight> <nop>
 vmap <C-ScrollWheelRight> <nop>
 
-" Explore
 nnoremap <Leader>v :Vex<CR>
 nnoremap <Leader>s :Sex<CR>
 
@@ -226,24 +225,38 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-" C formatter
-autocmd FileType c,cpp,objc ClangFormatAutoEnable
-
 " http client
 let g:http_client_verify_ssl = 0
 
 " windows
 " Ctrl - Alt - Shift w to hop between windows
 nnoremap <C-A-W> <C-w>w
+tnoremap <C-A-W> <Esc><C-w>w
+inoremap <C-A-W> <Esc><C-w>w
+vnoremap <C-A-W> <Esc><C-w>w
+
+" C formatter
+let g:clang_format#detect_style_file = 1
+let g:clang_format#style_options = { "DisableFormat" : "true" }
+autocmd FileType c,cpp,objc,h,hpp ClangFormatAutoEnable
+
+if has('nvim') && executable('nvr') 
+	let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+	let $EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+endif
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
+" Coverage
+Plug 'ruanyl/coverage.vim'
+
+" GPG
+Plug 'jamessan/vim-gnupg'
+
 " Test
 Plug 'janko/vim-test'
 
-" Coverage
-Plug 'ruanyl/coverage.vim'
 
 " Git Gutters
 Plug 'airblade/vim-gitgutter'
@@ -258,7 +271,7 @@ Plug 'sheerun/vim-polyglot'
 " Prettier
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
-  \ 'for': ['javascript','jsx', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  \ 'for': ['javascript','jsx', 'typescript', 'css', 'less', 'scss', 'json', 'graphql',  'vue', 'yaml', 'html'] }
 
 " Surround
 Plug 'tpope/vim-surround'
