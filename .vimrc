@@ -83,7 +83,7 @@ let g:coverage_json_report_path = 'coverage/coverage-final.json'
 
 " PRETTIER
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html Prettier
 
 " fugitive gitlab integration
 let g:fugitive_gitlab_domains = ['https://git.nmlv.nml.com']
@@ -123,7 +123,8 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-html',
       \ 'coc-css',
-      \ 'coc-eslint'
+      \ 'coc-eslint',
+      \ 'coc-rls'
       \ ]
 
 hi! link CocErrorHighlight SpellBad
