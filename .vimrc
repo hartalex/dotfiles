@@ -238,7 +238,7 @@ vnoremap <C-A-W> <Esc><C-w>w
 
 " C formatter
 let g:clang_format#detect_style_file = 1
-let g:clang_format#style_options = { "DisableFormat" : "true" }
+let g:clang_format#style_options = { "DisableFormat" : "false" }
 autocmd FileType c,cpp,objc,h,hpp ClangFormatAutoEnable
 
 if has('nvim') && executable('nvr') 
