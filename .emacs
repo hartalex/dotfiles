@@ -9,6 +9,7 @@
 (defvar ahart/packages '(evil
                          magit
 			 org
+			 prettier-js
 			 solarized-theme
 			  )
   "Default packages")
@@ -62,3 +63,8 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+
+;; Prettier
+(require 'prettier-js)
+(add-hook 'js-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
