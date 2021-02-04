@@ -18,6 +18,7 @@ set foldlevelstart=99
 " One Dark
 let g:onedark_terminal_italics=1
 let g:javascript_plugin_jsdoc = 1
+
 colorscheme onedark
 hi Conditional cterm=italic
 hi Repeat cterm=italic
@@ -84,6 +85,7 @@ let g:coverage_json_report_path = 'coverage/coverage-final.json'
 " PRETTIER
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html Prettier
+let g:prettier#exec_cmd_path= "/Users/har4146/.nvm/versions/node/v10.18.0/bin/prettier"
 
 " fugitive gitlab integration
 let g:fugitive_gitlab_domains = ['https://git.nmlv.nml.com']
@@ -238,7 +240,7 @@ vnoremap <C-A-W> <Esc><C-w>w
 
 " C formatter
 let g:clang_format#detect_style_file = 1
-let g:clang_format#style_options = { "DisableFormat" : "false" }
+let g:clang_format#style_options = { "DisableFormat" : "true" }
 autocmd FileType c,cpp,objc,h,hpp ClangFormatAutoEnable
 
 if has('nvim') && executable('nvr') 
@@ -272,6 +274,7 @@ Plug 'sheerun/vim-polyglot'
 " Prettier
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
+  \ 'branch': 'release/0.x',
   \ 'for': ['javascript','jsx', 'typescript', 'css', 'less', 'scss', 'json', 'graphql',  'vue', 'yaml', 'html'] }
 
 " Surround

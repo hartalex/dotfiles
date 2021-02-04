@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -105,11 +106,10 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && . "$NVM_DIR/etc/bash_completion.d/nvm"  # This loads nvm bash_completion -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source $HOME/.bash_profile
-export PATH="$HOME/.rbenv/versions/2.6.3/bin":$PATH
 alias ls='colorls'
 alias vi='nvim'
 alias vim='nvim'
@@ -123,8 +123,6 @@ alias gm='git merge -S'
 alias gs='git status'
 alias gr='git revert -S'
 alias gd='git diff'
-alias gl='git log ...HEAD~5'
-
 # npm alias
 alias nc='npm run ci-test'
 alias ni='npm install'
@@ -132,7 +130,6 @@ alias ns='npm run start'
 # node_modules
 alias tableflip="echo '(╯°□°)╯︵ ┻━┻' && rm -rf node_modules && npm ci"
 
-export EDITOR='nvim'
 export TERM="xterm-256color"
 source $HOME/.envsec
 
@@ -148,4 +145,6 @@ if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
 	fi
 fi
 
+alias aws-nm-login='/Users/har4146/.nvm/versions/node/v10.18.0/bin/aws-nm-login'
 alias weather='curl wttr.in/cedarburg'
+eval "$(rbenv init -)"
