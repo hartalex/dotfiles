@@ -68,7 +68,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases debian git yarn web-search jsontools node osx sudo docker iterm2 npm)
+plugins=(common-aliases debian git yarn web-search jsontools node macos sudo docker iterm2 npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,7 +110,7 @@ export NVM_DIR="$HOME/.nvm"
 
 source $HOME/.bash_profile
 export PATH="$HOME/.rbenv/versions/2.6.3/bin":$PATH
-alias ls='colorls'
+alias ls='exa --icons --no-user --git'
 alias vi='nvim'
 alias vim='nvim'
 # Git Aliases
@@ -149,3 +149,8 @@ if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
 fi
 
 alias weather='curl wttr.in/cedarburg'
+export LD_LIBRARY_PATH=/usr/local/lib,/usr/local/lib64,$LD_LIBRARY_PATH
+export CLIENT_ID=466133376395-a2gr81ake50q1nhodotjbiprelvr51u6.apps.googleusercontent.com
+export USER_ID=112256442265203256517
+export INCLUDE=/usr/local/include,$INCLUDE
+export MESSENGER_DIR=/home/alex/workspace/messenger
