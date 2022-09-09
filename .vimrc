@@ -124,7 +124,8 @@ let g:coc_global_extensions = [
       \ 'coc-html',
       \ 'coc-css',
       \ 'coc-eslint',
-      \ 'coc-rls'
+      \ 'coc-rls',
+      \ 'coc-clangd'
       \ ]
 
 hi! link CocErrorHighlight SpellBad
@@ -246,6 +247,12 @@ if has('nvim') && executable('nvr')
 	let $EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 endif
 
+" vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+
+let g:python3_host_prog='/usr/bin/python3'
+
+
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
 
@@ -355,6 +362,9 @@ Plug 'editorconfig/editorconfig-vim'
 
 " http client
 Plug 'aquach/vim-http-client'
+
+" vim debugger
+Plug 'puremourning/vimspector'
 
 " DevIcons
 Plug 'ryanoasis/vim-devicons'
