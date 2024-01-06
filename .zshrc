@@ -110,7 +110,8 @@ export NVM_DIR="$HOME/.nvm"
 
 source $HOME/.bash_profile
 export PATH="$HOME/.rbenv/versions/2.6.3/bin":$PATH
-alias ls='exa --icons --no-user --git'
+export PATH="$HOME/.local/bin":$PATH
+alias ls='exa --icons --no-user'
 alias vi='nvim'
 alias vim='nvim'
 # Git Aliases
@@ -133,7 +134,7 @@ alias ns='npm run start'
 alias tableflip="echo '(╯°□°)╯︵ ┻━┻' && rm -rf node_modules && npm ci"
 
 export EDITOR='nvim'
-export TERM="xterm-256color"
+export TERMINFO=/etc/terminfo
 source $HOME/.envsec
 
 export GPG_TTY=$(tty)
@@ -150,7 +151,6 @@ fi
 
 alias weather='curl wttr.in/cedarburg'
 export LD_LIBRARY_PATH=/usr/local/lib,/usr/local/lib64,$LD_LIBRARY_PATH
-export CLIENT_ID=***REMOVED***
-export USER_ID=***REMOVED***
-export INCLUDE=/usr/local/include,$INCLUDE
-export MESSENGER_DIR=/home/alex/workspace/messenger
+export INCLUDE=/usr/local/include,/usr/include/c++/11,$INCLUDE
+export CXXFLAGS='-Wall -Wpedantic -Wextra -Wsuggest-override -Wsuggest-attribute=format -Wsuggest-attribute=noreturn'
+source ~/.secrets
