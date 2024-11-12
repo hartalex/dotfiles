@@ -156,8 +156,9 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " DB 
 let g:bsint = 'postgres://$INT_PG_USER_BANKSERVICES:$INT_PG_PASS_BANKSERVICES@$INT_PG_HOST_BANKSERVICES/bankservices'
@@ -255,6 +256,9 @@ let g:python3_host_prog='/usr/bin/python3'
 
 " ----  Plugins  ----
 call plug#begin('~/.vim/plugged')
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 " Coverage
 Plug 'ruanyl/coverage.vim'
